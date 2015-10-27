@@ -172,6 +172,12 @@ triggers.push({
   action: action('flipacoin')
 });
 
+triggers.push({
+  mediums: ['irc'],
+  regex: /^\.roll (\d+)d(\d+)/,
+  action: action('rollthedice')
+});
+
 meme_config.memes.forEach(function(m){
   triggers.push({
     mediums: ['irc','plug'],
@@ -187,10 +193,6 @@ var bot = new irc.Client(config.server, config.botName, {
   	selfSigned: true,
     secure: true
 });
-
-setTimeout(function() {
-	bot.disc
-})
 
 // only talk lunch once a day
 var lastLunchTime;
