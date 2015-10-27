@@ -1,7 +1,7 @@
 module.exports = function(dbstewardess, data) {
   var n = parseInt(data.matches[1]);
   var d = parseInt(data.matches[2]);
-  if (isNaN(n) || isNaN(d)) {
+  if (isNaN(n) || isNaN(d) || n < 1 || d < 2) {
     return;
   }
 
